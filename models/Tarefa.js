@@ -13,7 +13,7 @@ const Tarefa = db.sequelize.define('tarefas', {
 
 // Força criação da tabela
 
-Tarefa.sync({force: true})
+// Tarefa.sync({force: true})
 
 // Exporta o modulo
 
