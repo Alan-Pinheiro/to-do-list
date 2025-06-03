@@ -1,0 +1,14 @@
+<form action="/tarefas" method="post">
+
+<p>Qual sua tarefa?</p>
+<input type="text" name="descricaoTarefa">
+
+<button type="submit">Adicionar</button>
+</form>
+
+<h2>Lista de Tarefas:</h2>
+<ul>
+    {{#each tarefas}}
+        <li>{{descricao}}</li>
+    {{/each}}
+</ul>
