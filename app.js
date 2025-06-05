@@ -29,7 +29,7 @@ const Tarefa = require('./models/Tarefa');
     
         app.post('/tarefas', (req, res) => {
             Tarefa.create({
-                descricao: req.body.descricaoTarefa
+                descricao: req.body.descricao
             })
             .then(() => {
                 res.redirect('/tarefas')
