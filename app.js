@@ -22,14 +22,18 @@ const Tarefa = require('./models/Tarefa');
     // GET
 
         app.get('/tarefas', (req, res) => {
-            res.render('home')
-        })
+            Tarefa.findAll({order: [['id', 'DESC']]}).then(tarefas => {
+                const tarefasSimples = tarefas.map(t => t.toJSON());
+                res.render('home', { tarefas: tarefasSimples });
+            });
+        });
 
     // POST
     
         app.post('/tarefas', (req, res) => {
             Tarefa.create({
-                descricao: req.body.descricao
+                descricao: req.body.descricao,
+                concluido: req.body.concluido
             })
             .then(() => {
                 res.redirect('/tarefas')
